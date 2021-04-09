@@ -37,4 +37,21 @@ jobs:
           name: my-artifact
           path: "*.exe"
           retention-days: 2
+          
+  notification:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: download your artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+
+      - name: send to tg artifact
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_DEBUG }}
+          token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
+          document: main.exe
 
