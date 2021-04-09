@@ -30,4 +30,11 @@ jobs:
           cl /EHsc main.cpp funct_s.cpp
       - name: ls
         run: ls
+        
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: "*.exe"
+          retention-days: 2
 
