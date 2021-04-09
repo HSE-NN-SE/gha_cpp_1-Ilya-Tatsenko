@@ -31,7 +31,7 @@ jobs:
       - name: ls
         run: ls
         
-      - name: "Upload Artifact"
+      - name: "Upload .exe file"
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
